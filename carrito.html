@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitZone | Carrito de Compras</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0a3d62", secondary: "#FF6B35", "secondary-container": "#FF6B35",
+            "on-surface-variant": "#42474e", "outline-variant": "#c2c7cf",
+            "surface-container-low": "#f4f3f6", "surface-container-lowest": "#ffffff", error: "#ba1a1a",
+            "inverse-surface": "#2f3033",
+          },
+          spacing: { "margin-desktop": "64px" },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-background font-sans">
+  <header id="site-header" class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50"></header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-margin-desktop py-10">
+    <div id="cart-header" class="mb-8"></div>
+    <div id="empty-cart" class="hidden text-center py-20">
+      <span class="material-symbols-outlined text-7xl text-outline-variant mb-4">shopping_cart</span>
+      <h2 class="text-2xl font-bold text-primary mb-2">Tu carrito está vacío</h2>
+      <a href="index.html" class="inline-block mt-4 bg-primary text-white px-8 py-3 rounded-lg font-bold">Explorar catálogo</a>
+    </div>
+    <div id="cart-layout" class="grid grid-cols-1 lg:grid-cols-12 gap-8 hidden">
+      <section id="cart-items" class="lg:col-span-8 space-y-4"></section>
+      <aside class="lg:col-span-4 sticky-summary h-fit">
+        <div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl shadow-sm">
+          <h2 class="font-bold text-primary text-lg mb-6 border-b border-outline-variant pb-4">Resumen del pedido</h2>
+          <div class="space-y-4 mb-6">
+            <div class="flex justify-between"><span class="text-on-surface-variant">Subtotal</span><span id="summary-subtotal">$0</span></div>
+            <div class="flex justify-between"><span class="text-on-surface-variant">Envío</span><span class="text-sm italic text-on-surface-variant">Calculado al confirmar</span></div>
+          </div>
+          <div class="border-t border-outline-variant pt-6 mb-6">
+            <div class="flex justify-between items-end">
+              <span class="font-bold text-primary">Total</span>
+              <div class="text-right">
+                <p id="summary-total" class="text-3xl font-extrabold text-primary">$0</p>
+                <p class="text-xs text-on-surface-variant font-bold uppercase">COP</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative has-tooltip">
+            <button id="checkout-btn" type="button" class="w-full bg-secondary-container text-white py-4 rounded-lg font-bold flex justify-center items-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+              Proceder al pedido <span class="material-symbols-outlined">lock</span>
+            </button>
+            <div id="checkout-tooltip" class="tooltip-custom absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-inverse-surface text-white text-sm rounded shadow-lg whitespace-nowrap">
+              Debes iniciar sesión
+            </div>
+          </div>
+          <a href="index.html" class="flex items-center justify-center gap-2 text-primary hover:text-secondary font-semibold mt-6">
+            <span class="material-symbols-outlined">arrow_back</span> Seguir comprando
+          </a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script type="module" src="js/pages/carrito.js"></script>
+</body>
+</html>

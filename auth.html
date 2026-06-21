@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitZone - Autenticación</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0A3D62", secondary: "#FF6B35", "secondary-container": "#FF6B35",
+            "on-surface-variant": "#42474e", "outline-variant": "#c2c7cf",
+            "surface-container-low": "#f4f3f6", "surface-container-lowest": "#ffffff", error: "#ba1a1a",
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-surface font-sans min-h-screen">
+  <main class="flex min-h-screen max-w-[1280px] mx-auto shadow-2xl overflow-hidden bg-white">
+    <section class="hidden lg:flex lg:w-[40%] relative overflow-hidden bg-primary items-center justify-center">
+      <div class="absolute inset-0 z-0 bg-cover bg-center" id="auth-hero"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+      <div class="relative z-10 w-full px-12 text-left text-white">
+        <a href="index.html" class="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full mb-12 shadow-lg">
+          <img id="auth-logo" alt="FitZone" class="h-8 w-auto mr-3">
+          <span class="text-primary font-extrabold text-xl">FitZone</span>
+        </a>
+        <h1 class="text-4xl font-extrabold mb-6 leading-tight">Rendimiento<br>con estilo</h1>
+        <p class="opacity-90 max-w-sm">Equipamiento de élite para el atleta moderno.</p>
+        <div class="absolute bottom-12 left-12 h-1 w-24 bg-secondary"></div>
+      </div>
+    </section>
+
+    <section class="flex-1 bg-surface-container-lowest flex flex-col px-6 py-10 lg:px-20">
+      <div class="max-w-md w-full mx-auto flex flex-col h-full">
+        <div class="lg:hidden flex flex-col items-center mb-8">
+          <a href="index.html"><img id="auth-logo-mobile" alt="FitZone" class="h-10 w-auto mb-2"></a>
+          <h2 class="text-primary font-extrabold text-xl">FitZone</h2>
+        </div>
+
+        <div class="flex border-b border-outline-variant mb-10">
+          <button type="button" id="tab-login" class="flex-1 py-4 text-center font-semibold tab-active">Iniciar sesión</button>
+          <button type="button" id="tab-register" class="flex-1 py-4 text-center font-semibold text-on-surface-variant">Registrarse</button>
+        </div>
+
+        <div id="form-login">
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-primary">Bienvenido de vuelta</h2>
+            <p class="text-on-surface-variant">Ingresa a tu cuenta para realizar pedidos</p>
+          </div>
+          <form id="login-form" class="space-y-5">
+            <div>
+              <label class="text-sm font-bold text-on-surface-variant" for="login-email">Correo electrónico</label>
+              <input id="login-email" type="email" required placeholder="ejemplo@correo.com" class="w-full mt-1 px-4 py-3 rounded-lg border border-outline-variant form-input-focus">
+              <p id="login-email-error" class="text-error text-sm mt-1 hidden"></p>
+            </div>
+            <div>
+              <label class="text-sm font-bold text-on-surface-variant" for="login-password">Contraseña</label>
+              <input id="login-password" type="password" required placeholder="••••••••" class="w-full mt-1 px-4 py-3 rounded-lg border border-outline-variant form-input-focus">
+            </div>
+            <p id="login-error" class="text-error text-sm hidden"></p>
+            <button type="submit" class="w-full bg-secondary text-white font-bold py-4 rounded-lg hover:brightness-110">Iniciar sesión</button>
+            <p class="text-center text-on-surface-variant">¿No tienes cuenta? <button type="button" id="go-register" class="text-primary font-bold hover:underline">Regístrate aquí</button></p>
+          </form>
+        </div>
+
+        <div id="form-register" class="hidden-form">
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-primary">Crea tu cuenta</h2>
+            <p class="text-on-surface-variant">Regístrate para acceder al catálogo y realizar pedidos</p>
+          </div>
+          <form id="register-form" class="space-y-5">
+            <div>
+              <label class="text-sm font-bold text-on-surface-variant" for="reg-name">Nombre completo</label>
+              <input id="reg-name" type="text" required class="w-full mt-1 px-4 py-3 rounded-lg border border-outline-variant form-input-focus">
+            </div>
+            <div>
+              <label class="text-sm font-bold text-on-surface-variant" for="reg-email">Correo electrónico</label>
+              <input id="reg-email" type="email" required class="w-full mt-1 px-4 py-3 rounded-lg border border-outline-variant form-input-focus">
+              <p id="reg-email-error" class="text-error text-sm mt-1 hidden"></p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-bold text-on-surface-variant" for="reg-password">Contraseña</label>
+                <input id="reg-password" type="password" required minlength="6" class="w-full mt-1 px-4 py-3 rounded-lg border border-outline-variant form-input-focus">
+              </div>
+              <div>
+                <label class="text-sm font-bold text-on-surface-variant" for="reg-confirm">Confirmar</label>
+                <input id="reg-confirm" type="password" required class="w-full mt-1 px-4 py-3 rounded-lg border border-outline-variant form-input-focus">
+              </div>
+            </div>
+            <label class="flex items-center gap-3">
+              <input id="reg-terms" type="checkbox" required class="rounded">
+              <span class="text-sm text-on-surface-variant">Acepto los <a href="#" class="text-primary font-bold">términos y condiciones</a></span>
+            </label>
+            <p id="register-error" class="text-error text-sm hidden"></p>
+            <button type="submit" class="w-full bg-secondary text-white font-bold py-4 rounded-lg hover:brightness-110">Crear cuenta</button>
+          </form>
+        </div>
+
+        <p class="mt-auto pt-10 border-t border-outline-variant text-center text-sm text-on-surface-variant italic">
+          Debes estar registrado para realizar un pedido
+        </p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/pages/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FitZone - Resultados de Búsqueda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e2e2e5",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#80a8d3",
+                    "tertiary-fixed": "#ffdcbf",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#f9ba7e",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f1f0f4",
+                    "on-surface-variant": "#42474e",
+                    "primary": "#0a3d62",
+                    "surface-bright": "#f9f9fc",
+                    "surface-container-low": "#f4f3f6",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#a2caf7",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#d49960",
+                    "tertiary-container": "#593100",
+                    "surface-container-high": "#e8e8eb",
+                    "on-primary-fixed-variant": "#1d4970",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1e",
+                    "primary-fixed-dim": "#a2caf7",
+                    "secondary-container": "#FF6B35",
+                    "secondary": "#FF6B35",
+                    "secondary-fixed-dim": "#b9c8dc",
+                    "primary-container": "#0b3d63",
+                    "on-secondary-fixed": "#0e1d2b",
+                    "secondary-fixed": "#d5e4f8",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001d34",
+                    "surface-variant": "#e2e2e5",
+                    "surface-container": "#eeedf1",
+                    "on-tertiary-fixed-variant": "#673d0a",
+                    "surface-dim": "#dadadd",
+                    "background": "#f9f9fc",
+                    "tertiary": "#3a1e00",
+                    "primary-fixed": "#d0e4ff",
+                    "outline-variant": "#c2c7cf",
+                    "outline": "#72777f",
+                    "on-secondary-fixed-variant": "#3a4858",
+                    "on-secondary-container": "#ffffff",
+                    "surface-tint": "#386189",
+                    "surface": "#f9f9fc",
+                    "on-tertiary-fixed": "#2d1600",
+                    "on-surface": "#1a1c1e",
+                    "inverse-surface": "#2f3033"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "section-gap": "80px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-xl": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "price-display": ["Inter"],
+                    "label-bold": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "price-display": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<a class="h-10 block" href="{{DATA:SCREEN:SCREEN_6}}"><img src="https://lh3.googleusercontent.com/aida/AP1WRLtZOVFeyXzBhUecY8eVJ1e-2_ehLmdBNkgW0W3iQNJSA1cWFbIxSUqc8ekgXt-tnO98C2SBcfo3U7VA8XFkGux0zyq3IDYydIOnRisj5KyDfmFC2dAyNNUVmjTFGPUZDJk80olBpSYkHQg_-rCSUvVwLltqgwB_5hB2-Qej84_vIJyBlPgBTz-7lgbJl7rR3VFHH1URPJXbnbCh48zWPbfDjxfQ5ryucdzo7nlIIbzUc_jW_NwlhbMQjw" alt="FitZone Logo" class="h-10 w-auto object-contain"></a>
+<nav class="hidden md:flex gap-6">
+<a class="text-label-bold font-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-label-bold font-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Catálogo</a>
+<a class="text-label-bold font-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Categorías</a>
+</nav>
+</div>
+<div class="flex-1 max-w-md mx-6 relative">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 px-10 focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-body-lg" placeholder="Buscar productos por nombre..." type="text" value="camiseta">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden md:block text-label-bold font-label-bold text-on-surface-variant hover:text-primary transition-colors" href="#">Iniciar sesión</a>
+<button class="relative p-2 text-primary">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute top-0 right-0 bg-secondary text-on-secondary text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">3</span>
+</button>
+<button class="md:hidden p-2 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-section-gap max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar / Filtros Avanzados -->
+<aside class="w-full md:w-1/4 space-y-8 sticky top-24 self-start">
+<div class="flex items-center justify-between">
+<h2 class="text-title-md font-label-bold uppercase tracking-wider text-primary">FILTROS AVANZADOS</h2>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<!-- Active Filter Chips -->
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-body-sm flex items-center gap-1 border border-outline-variant">
+                        Camisetas <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error transition-colors">close</span>
+</span>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-body-sm flex items-center gap-1 border border-outline-variant">
+                        Precio: $50.000 - $150.000 <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error transition-colors">close</span>
+</span>
+</div>
+<!-- Section Categoría -->
+<section class="space-y-4">
+<h3 class="text-body-lg font-label-bold text-primary">Categoría</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline text-primary focus:ring-primary" type="checkbox">
+<span class="text-body-sm group-hover:text-primary transition-colors">Calzado</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-outline text-primary focus:ring-primary" type="checkbox">
+<span class="text-body-sm font-bold text-primary group-hover:text-primary transition-colors">Camisetas</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline text-primary focus:ring-primary" type="checkbox">
+<span class="text-body-sm group-hover:text-primary transition-colors">Pantalones</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline text-primary focus:ring-primary" type="checkbox">
+<span class="text-body-sm group-hover:text-primary transition-colors">Chaquetas</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline text-primary focus:ring-primary" type="checkbox">
+<span class="text-body-sm group-hover:text-primary transition-colors">Accesorios</span>
+</label>
+</div>
+</section>
+<!-- Section Rango de Precio -->
+<section class="space-y-4">
+<h3 class="text-body-lg font-label-bold text-primary">Rango de precio</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between gap-4">
+<div class="flex-1">
+<label class="text-[10px] font-label-bold text-outline uppercase">Min</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded p-2 text-body-sm outline-none focus:ring-1 focus:ring-primary" type="number" value="50000">
+</div>
+<div class="flex-1">
+<label class="text-[10px] font-label-bold text-outline uppercase">Max</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded p-2 text-body-sm outline-none focus:ring-1 focus:ring-primary" type="number" value="150000">
+</div>
+</div>
+<div class="relative w-full h-6 flex items-center">
+<div class="absolute w-full h-1 bg-outline-variant rounded-full"></div>
+<div class="absolute left-1/4 w-1/2 h-1 bg-primary rounded-full"></div>
+<input class="absolute w-full h-1 bg-transparent appearance-none pointer-events-none accent-primary [&amp;::-webkit-slider-thumb]:pointer-events-auto [&amp;::-webkit-slider-thumb]:w-4 [&amp;::-webkit-slider-thumb]:h-4 [&amp;::-webkit-slider-thumb]:rounded-full [&amp;::-webkit-slider-thumb]:bg-primary [&amp;::-webkit-slider-thumb]:appearance-none" max="500000" min="0" step="10000" type="range">
+</div>
+<div class="flex justify-between text-[10px] text-outline font-label-bold uppercase">
+<span class="">$0</span>
+<span class="">$500.000</span>
+</div>
+</div>
+</section>
+<!-- Section Disponibilidad -->
+<section class="space-y-4">
+<h3 class="text-body-lg font-label-bold text-primary">Disponibilidad</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded-full border-outline text-primary focus:ring-primary" name="stock" type="checkbox">
+<span class="text-body-sm group-hover:text-primary transition-colors">En stock</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-full border-outline text-primary focus:ring-primary" name="stock" type="checkbox">
+<span class="text-body-sm group-hover:text-primary transition-colors">Stock bajo</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-full border-outline text-primary focus:ring-primary" name="stock" type="checkbox">
+<span class="text-body-sm group-hover:text-primary transition-colors">Agotado</span>
+</label>
+</div>
+</section>
+<!-- Sidebar Buttons -->
+<div class="space-y-4 pt-4 border-t border-outline-variant">
+<a class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-bold uppercase tracking-widest hover:brightness-110 transition-all active:scale-[0.98] duration-150 text-center block" href="{{DATA:SCREEN:SCREEN_6}}">APLICAR FILTROS</a>
+<button class="w-full text-on-surface-variant font-label-bold uppercase tracking-widest hover:text-primary transition-colors py-2">
+                        LIMPIAR TODO
+                    </button>
+</div>
+</aside>
+<!-- Results Area -->
+<div class="w-full md:w-3/4 space-y-gutter">
+<!-- Header Results -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant pb-4">
+<p class="text-body-lg"><span class="font-bold text-primary">12</span> productos encontrados para <span class="italic font-bold">"camiseta"</span></p>
+<div class="relative inline-block text-left">
+<select class="appearance-none bg-surface-container-low border border-outline-variant rounded-lg py-2 pl-4 pr-10 text-body-sm font-label-bold text-primary focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
+<option>Ordenar por: Relevancia</option>
+<option>Precio: menor a mayor</option>
+<option>Precio: mayor a menor</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group border border-outline-variant rounded-xl overflow-hidden bg-surface hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img alt="Camiseta Dry-Fit Pro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAyAnFvRRnmphMiHOXg9PKXRdyeD_ymjkhJImjwXgP3dIGKHUxcQ7nw82oC6Jzl3GIFNwa8YMBd0BXVmlTh0kicwr_SePvtGN5fOYTQcD3bj6qfB2tcw4Mp57VJ10LHvuzPKcbF-i_ACqvmLJpMiiTnN9wUfA9g7GTsyyuZgv3hIVUJW70Wem6FQWa2-6iVs_R-1v1QzwAjTmsxYK3-nc72UDh55DhjEG3eE3qq0TWTGmCuk7RaSi08z98UikVyde0RCDxw0UWPQ">
+<span class="absolute top-3 left-3 bg-primary text-on-primary text-[10px] font-label-bold px-2 py-1 rounded uppercase tracking-wider">CAMISETAS</span>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<h4 class="text-body-lg font-bold text-primary group-hover:text-secondary transition-colors line-clamp-1"><a class="hover:underline" href="{{DATA:SCREEN:SCREEN_4}}">Camiseta Dry-Fit Pro</a></h4>
+<span class="bg-green-100 text-green-800 text-[10px] font-label-bold px-2 py-0.5 rounded flex items-center gap-1"><span class="w-1.5 h-1.5 bg-green-600 rounded-full"></span>En stock</span>
+</div>
+<p class="text-price-display font-price-display text-primary">$89.900</p>
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-label-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-all hover:brightness-110 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                                Agregar al carrito
+                            </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group border border-outline-variant rounded-xl overflow-hidden bg-surface hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img alt="Camiseta AeroSwift" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVkVRUfpHCBq2gYlu4W3fxI-eu6ukKC-S3cwAcwXVRin-Z38Q15RZiHUa-nwaGe-K3fz-he9OVik6oc0ldFTlAm4e9sD1j9v5QPoRAidcZLUpnDcecLZ_zLZ5vArsBO1A7iQ7VM0GQtkVkJGmjyjOuDFnKtfdwsCS4OTM8l-qGPNXHGJjMJ37G6bKf7KqJm9dEG5vIIxcPBgTb9tl7IEkQMLEL0dDGZRU4EylLNkipxiTTSm5kPImnB1v8E8Y_6yCDbzUXiirikQ">
+<span class="absolute top-3 left-3 bg-primary text-on-primary text-[10px] font-label-bold px-2 py-1 rounded uppercase tracking-wider">CAMISETAS</span>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<h4 class="text-body-lg font-bold text-primary group-hover:text-secondary transition-colors line-clamp-1"><a class="hover:underline" href="{{DATA:SCREEN:SCREEN_4}}">Camiseta AeroSwift</a></h4>
+<span class="bg-green-100 text-green-800 text-[10px] font-label-bold px-2 py-0.5 rounded flex items-center gap-1"><span class="w-1.5 h-1.5 bg-green-600 rounded-full"></span>En stock</span>
+</div>
+<p class="text-price-display font-price-display text-primary">$124.900</p>
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-label-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-all hover:brightness-110 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                                Agregar al carrito
+                            </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group border border-outline-variant rounded-xl overflow-hidden bg-surface hover:shadow-xl transition-all duration-300">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img alt="Camiseta Tech Core" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXtb6rW-lXLPK-AwEtVeEzP6NwevrfQCsS_I_OGQzaCl_IyEwPXYRvHv8zLcAQEi93bK3vr5xuZMWPo5f_6plqb75w8UAAuSr2wtaj_blwAcN08VXAwpj8X4l1TUWAJ_rCF_cTTll3JZqRhTlFrZPRRnSTlHxYecPHRtXtz5zRKZW3cBSnf3MOFVl-3nMeKFzUN7i9_Sn9ea4jCsKqLQ89TPaab8wTHzzlmc1Jf4HNvBLv-Axpi4GQD_9SqWBuW04lDTPIboXIEA">
+<span class="absolute top-3 left-3 bg-primary text-on-primary text-[10px] font-label-bold px-2 py-1 rounded uppercase tracking-wider">CAMISETAS</span>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<h4 class="text-body-lg font-bold text-primary group-hover:text-secondary transition-colors line-clamp-1"><a class="hover:underline" href="{{DATA:SCREEN:SCREEN_4}}">Camiseta Tech Core</a></h4>
+<span class="bg-green-100 text-green-800 text-[10px] font-label-bold px-2 py-0.5 rounded flex items-center gap-1"><span class="w-1.5 h-1.5 bg-green-600 rounded-full"></span>En stock</span>
+</div>
+<div class="flex items-center gap-2">
+<p class="text-price-display font-price-display text-primary">$69.900</p>
+<span class="text-body-sm text-outline line-through">$99.900</span>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-label-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-all hover:brightness-110 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                                Agregar al carrito
+                            </button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<nav class="flex justify-center items-center gap-2 pt-12 border-t border-outline-variant">
+<a class="px-3 py-2 text-body-sm font-label-bold text-outline hover:text-primary transition-colors flex items-center gap-1" href="#">
+                        Anterior
+                    </a>
+<span class="text-outline">|</span>
+<div class="flex items-center gap-1">
+<a class="w-9 h-9 rounded-lg flex items-center justify-center bg-primary text-on-primary text-body-sm font-bold shadow-md" href="#">1</a>
+<a class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high text-body-sm font-bold transition-colors" href="#">2</a>
+<a class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high text-body-sm font-bold transition-colors" href="#">3</a>
+<span class="w-9 h-9 flex items-center justify-center text-outline">...</span>
+<a class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container-high text-body-sm font-bold transition-colors" href="#">5</a>
+</div>
+<span class="text-outline">|</span>
+<a class="px-3 py-2 text-body-sm font-label-bold text-outline hover:text-primary transition-colors flex items-center gap-1" href="#">
+                        Siguiente
+                    </a>
+</nav>
+</div>
+</div>
+<!-- No Results Section (Example for UI completeness) -->
+<section class="mt-24 py-16 border-t border-outline-variant text-center max-w-2xl mx-auto hidden">
+<div class="flex flex-col items-center gap-6">
+<div class="w-24 h-24 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-5xl">search_off</span>
+</div>
+<div class="space-y-2">
+<h2 class="text-headline-lg font-bold text-primary">No se encontraron productos</h2>
+<p class="text-body-lg text-on-surface-variant">Intenta con otros filtros o términos de búsqueda.</p>
+</div>
+<button class="mt-4 px-8 py-3 border-2 border-primary text-primary rounded-lg font-label-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+                    Ver todo el catálogo
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary w-full" style="background-color: #0A3D62;">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap w-full max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="h-10"><img src="https://lh3.googleusercontent.com/aida/AP1WRLsYr1jLJhPKm3DzaMAZXxN7Qk3mZuNB_Zoa9igDlnIoPRTn3EzY1VaKEq-9iDWSK1rN0ovA4hapkzHh54LAcJlsd3TJF26NvKe9pi22mAq2GLZkcCFe6siH71qAr4YdlalDKzazTIin0BnIgd7JGZbENEjbi3NthtIN2MzSw5KD2zJLEmEsiDYJ_qLxarf8uFQDgnzAvC8MA34GvFzqGoLScKpsbwnGYCTWsll3UzJdNBuG_S6Rb4lL" alt="FitZone Logo Inverted" class="h-10 w-auto object-contain"></div>
+<p class="text-body-sm opacity-80 leading-relaxed">Rendimiento sin límites. Equipamos a los atletas del mañana con tecnología de vanguardia y estilo incomparable.</p>
+</div>
+<div>
+<h4 class="text-label-bold font-label-bold uppercase mb-6 tracking-widest text-secondary">FitZone</h4>
+<ul class="space-y-3">
+<li class=""><a class="text-body-sm text-on-primary opacity-80 hover:opacity-100 hover:text-secondary transition-all" href="#">Sobre nosotros</a></li>
+<li class=""><a class="text-body-sm text-on-primary opacity-80 hover:opacity-100 hover:text-secondary transition-all" href="#">Contacto</a></li>
+<li class=""><a class="text-body-sm text-on-primary opacity-80 hover:opacity-100 hover:text-secondary transition-all" href="#">Términos y Condiciones</a></li>
+<li class=""><a class="text-body-sm text-on-primary opacity-80 hover:opacity-100 hover:text-secondary transition-all" href="#">Guía de Tallas</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-bold font-label-bold uppercase mb-6 tracking-widest text-secondary">Soporte</h4>
+<ul class="space-y-3">
+<li class=""><a class="text-body-sm text-on-primary opacity-80 hover:opacity-100 hover:text-secondary transition-all" href="#">Preguntas Frecuentes</a></li>
+<li class=""><a class="text-body-sm text-on-primary opacity-80 hover:opacity-100 hover:text-secondary transition-all" href="#">Envíos y Entregas</a></li>
+<li class=""><a class="text-body-sm text-on-primary opacity-80 hover:opacity-100 hover:text-secondary transition-all" href="#">Devoluciones</a></li>
+<li class=""><a class="text-body-sm text-on-primary opacity-80 hover:opacity-100 hover:text-secondary transition-all" href="#">Pagar con PSE</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-bold font-label-bold uppercase mb-6 tracking-widest text-secondary">Newsletter</h4>
+<p class="text-body-sm opacity-80 mb-4">Suscríbete para recibir ofertas exclusivas y novedades.</p>
+<div class="flex">
+<input class="bg-[#0b4a7a] border-none text-on-primary text-body-sm px-4 py-2 rounded-l-lg w-full outline-none focus:ring-1 focus:ring-secondary placeholder:text-on-primary/50" placeholder="Email" type="email">
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-r-lg hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-on-primary/10 py-8 text-center text-[12px] opacity-60">© 2026 FitZone — Proyecto TSP Politécnico Grancolombiano</div>
+</footer>
+<!-- Bottom Nav Mobile (Kept for accessibility, though request focused on desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant px-6 py-2 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-weight="fill">home</span>
+<span class="text-[10px] font-label-bold">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-label-bold">Explorar</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-label-bold">Favoritos</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-bold">Perfil</span>
+</button>
+</nav>
+<script>
+        // Interactive elements micro-interactions
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => el.classList.add('scale-95'));
+            el.addEventListener('mouseup', () => el.classList.remove('scale-95'));
+            el.addEventListener('mouseleave', () => el.classList.remove('scale-95'));
+        });
+    </script>
+
+
+</body></html>

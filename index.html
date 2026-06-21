@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitZone | Catálogo de Alto Rendimiento</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0a3d62", secondary: "#FF6B35", "secondary-container": "#FF6B35",
+            background: "#f9f9fc", "on-background": "#1a1c1e", "on-surface-variant": "#42474e",
+            "outline-variant": "#c2c7cf", "surface-container": "#eeedf1", "surface-container-low": "#f4f3f6",
+            "surface-container-lowest": "#ffffff",
+          },
+          spacing: { "margin-desktop": "64px" },
+          fontSize: {
+            "display-xl": ["48px", { lineHeight: "56px", fontWeight: "800" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+            "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "24px" }],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-background text-on-background font-sans">
+  <header id="site-header" class="bg-surface-container-lowest border-b border-outline-variant shadow-sm sticky top-0 z-50"></header>
+
+  <main>
+    <section class="relative h-[500px] w-full overflow-hidden bg-primary">
+      <div id="hero-bg" class="absolute inset-0 bg-cover bg-center"></div>
+      <div class="absolute inset-0 hero-gradient flex items-center px-4 md:px-margin-desktop">
+        <div class="max-w-2xl text-white">
+          <h1 class="text-display-xl mb-4 animate-fade-in-up">Equipa tu rendimiento</h1>
+          <p class="text-body-lg mb-8 opacity-90">Ropa deportiva de alta gama para atletas exigentes.</p>
+          <a href="#catalogo" class="inline-block bg-secondary text-white px-10 py-4 rounded-lg font-bold text-lg hover:brightness-110 transition-all shadow-lg">Ver catálogo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-lowest border-b border-outline-variant px-4 md:px-margin-desktop py-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <h2 class="text-headline-lg text-primary">Nuestra Colección</h2>
+          <div class="flex gap-3 flex-wrap">
+            <button id="toggle-filters" type="button" class="flex items-center gap-2 px-6 py-2.5 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">
+              <span class="material-symbols-outlined">tune</span> Filtros
+            </button>
+            <a class="flex items-center gap-2 px-6 py-2.5 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all" href="busqueda.html">
+              <span class="material-symbols-outlined">tune</span> Búsqueda avanzada
+            </a>
+          </div>
+        </div>
+        <div id="filter-panel" class="hidden bg-surface-container-low rounded-xl p-6 mt-4 border border-outline-variant">
+          <form id="filter-form" class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div>
+              <label class="block text-sm font-bold text-primary mb-2">Categoría</label>
+              <select name="category" class="w-full rounded-lg border-outline-variant focus:ring-secondary bg-white">
+                <option value="">Todas</option>
+                <option>Calzado</option>
+                <option>Camisetas</option>
+                <option>Pantalones</option>
+                <option>Chaquetas</option>
+                <option>Accesorios</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-primary mb-2">Precio Mínimo (COP)</label>
+              <input name="minPrice" type="number" placeholder="0" class="w-full rounded-lg border-outline-variant bg-white">
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-primary mb-2">Precio Máximo (COP)</label>
+              <input name="maxPrice" type="number" placeholder="1000000" class="w-full rounded-lg border-outline-variant bg-white">
+            </div>
+            <div class="flex items-end gap-2">
+              <button type="submit" class="flex-1 bg-primary text-white py-2.5 rounded-lg font-bold hover:opacity-90">Aplicar</button>
+              <button type="reset" class="flex-1 border border-primary text-primary py-2.5 rounded-lg font-bold">Limpiar</button>
+            </div>
+          </form>
+        </div>
+        <p id="catalog-count" class="text-on-surface-variant text-sm mt-4">Cargando productos...</p>
+      </div>
+    </section>
+
+    <section id="catalogo" class="px-4 md:px-margin-desktop py-12 max-w-7xl mx-auto">
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script type="module" src="js/pages/index.js"></script>
+</body>
+</html>

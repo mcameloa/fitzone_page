@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitZone | Detalle de Producto</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0a3d62", secondary: "#FF6B35", "secondary-container": "#FF6B35",
+            "on-surface-variant": "#42474e", "outline-variant": "#c2c7cf",
+            "surface-container-low": "#f4f3f6", "surface-container-lowest": "#ffffff",
+          },
+          spacing: { "margin-desktop": "64px" },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-background font-sans">
+  <header id="site-header" class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50"></header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-margin-desktop py-8">
+    <nav id="breadcrumb" class="text-sm text-on-surface-variant mb-8 flex flex-wrap gap-1 items-center"></nav>
+    <div id="product-content" class="grid grid-cols-1 lg:grid-cols-2 gap-12"></div>
+    <div id="not-found" class="hidden text-center py-20">
+      <h2 class="text-2xl font-bold text-primary mb-4">Producto no encontrado</h2>
+      <a href="index.html" class="text-secondary font-bold hover:underline">Volver al catálogo</a>
+    </div>
+    <section id="related-section" class="mt-16 hidden">
+      <h2 class="text-2xl font-bold text-primary mb-6">Productos relacionados</h2>
+      <div id="related-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6 overflow-x-auto hide-scrollbar"></div>
+    </section>
+  </main>
+
+  <div id="description-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 modal-backdrop">
+    <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+      <button id="close-modal" type="button" class="absolute top-4 right-4 p-2 hover:bg-surface-container-low rounded-full">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="js/pages/producto.js"></script>
+</body>
+</html>

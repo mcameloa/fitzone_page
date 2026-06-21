@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitZone | Búsqueda Avanzada</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0a3d62", secondary: "#FF6B35", "on-primary": "#ffffff",
+            "on-surface-variant": "#42474e", "outline-variant": "#c2c7cf",
+            "surface-container-low": "#f4f3f6", "surface-container-lowest": "#ffffff",
+          },
+          spacing: { "margin-desktop": "64px", gutter: "24px" },
+          fontSize: {
+            "body-lg": ["16px", { lineHeight: "24px" }],
+            "body-sm": ["14px", { lineHeight: "20px" }],
+            "price-display": ["18px", { fontWeight: "700" }],
+            "label-bold": ["12px", { fontWeight: "700" }],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-background font-sans text-on-background">
+  <header id="site-header" class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50 shadow-sm"></header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-margin-desktop py-8">
+    <div class="flex flex-col md:flex-row gap-gutter">
+      <aside class="w-full md:w-1/4 space-y-6 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 h-fit">
+        <h2 class="text-primary font-bold text-lg">Filtros avanzados</h2>
+        <div id="active-chips" class="flex flex-wrap gap-2"></div>
+        <form id="search-form" class="space-y-6">
+          <input type="hidden" name="q" id="hidden-q">
+          <section>
+            <h3 class="font-bold text-primary mb-3">Categoría</h3>
+            <div class="space-y-2" id="category-checks">
+              <label class="flex items-center gap-2"><input type="checkbox" name="category" value="Calzado"> Calzado</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="category" value="Camisetas"> Camisetas</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="category" value="Pantalones"> Pantalones</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="category" value="Chaquetas"> Chaquetas</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="category" value="Accesorios"> Accesorios</label>
+            </div>
+          </section>
+          <section>
+            <h3 class="font-bold text-primary mb-3">Rango de precio (COP)</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <input name="minPrice" type="number" placeholder="Mín" class="rounded-lg border-outline-variant">
+              <input name="maxPrice" type="number" placeholder="Máx" class="rounded-lg border-outline-variant">
+            </div>
+          </section>
+          <section>
+            <h3 class="font-bold text-primary mb-3">Disponibilidad</h3>
+            <div class="space-y-2">
+              <label class="flex items-center gap-2"><input type="checkbox" name="stock" value="in" checked> En stock</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="stock" value="low"> Stock bajo</label>
+              <label class="flex items-center gap-2"><input type="checkbox" name="stock" value="out"> Agotado</label>
+            </div>
+          </section>
+          <div class="space-y-3 pt-4 border-t border-outline-variant">
+            <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-bold uppercase tracking-wide">Aplicar filtros</button>
+            <button type="button" id="clear-filters" class="w-full text-on-surface-variant font-bold uppercase text-sm py-2 hover:text-primary">Limpiar todo</button>
+          </div>
+        </form>
+      </aside>
+
+      <div class="w-full md:w-3/4 space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant pb-4">
+          <p id="results-header" class="text-body-lg">Buscando...</p>
+          <select id="sort-select" class="rounded-lg border border-outline-variant py-2 px-4 text-sm font-bold text-primary">
+            <option value="relevance">Ordenar por: Relevancia</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name">Nombre</option>
+          </select>
+        </div>
+        <div id="results-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter"></div>
+        <div id="empty-state" class="hidden text-center py-16">
+          <span class="material-symbols-outlined text-6xl text-outline-variant mb-4">search_off</span>
+          <h3 class="text-xl font-bold text-primary mb-2">No se encontraron productos</h3>
+          <p class="text-on-surface-variant mb-6">Intenta con otros filtros o términos de búsqueda</p>
+          <a href="index.html" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-bold">Ver todo el catálogo</a>
+        </div>
+        <nav id="pagination" class="flex justify-center items-center gap-2 pt-4"></nav>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script type="module" src="js/pages/busqueda.js"></script>
+</body>
+</html>

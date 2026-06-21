@@ -1,0 +1,77 @@
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    to right,
+    rgba(10, 61, 98, 0.9) 0%,
+    rgba(10, 61, 98, 0.4) 60%,
+    transparent 100%
+  );
+}
+
+.sticky-summary {
+  top: 96px;
+}
+
+.has-tooltip:hover .tooltip-custom {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-custom {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+.tab-active {
+  border-bottom: 4px solid #0a3d62;
+  color: #0a3d62;
+  font-weight: 700;
+}
+
+.hidden-form {
+  display: none;
+}
+
+.form-input-focus:focus {
+  outline: none;
+  border-color: #0a3d62;
+  box-shadow: 0 0 0 2px rgba(10, 61, 98, 0.1);
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}

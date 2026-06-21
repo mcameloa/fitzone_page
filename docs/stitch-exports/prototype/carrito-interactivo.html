@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2f3033",
+                    "secondary-container": "#FF6B35",
+                    "surface-bright": "#f9f9fc",
+                    "surface-container": "#eeedf1",
+                    "on-secondary-fixed": "#0e1d2b",
+                    "on-surface": "#1a1c1e",
+                    "on-secondary-container": "#ffffff",
+                    "on-secondary-fixed-variant": "#3a4858",
+                    "on-primary-fixed-variant": "#1d4970",
+                    "surface-container-low": "#f4f3f6",
+                    "on-surface-variant": "#42474e",
+                    "outline-variant": "#c2c7cf",
+                    "on-primary-fixed": "#001d34",
+                    "tertiary-fixed": "#ffdcbf",
+                    "on-tertiary-fixed": "#2d1600",
+                    "surface-container-high": "#e8e8eb",
+                    "surface-tint": "#0a3d62",
+                    "primary": "#0a3d62",
+                    "on-tertiary-container": "#d49960",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f9f9fc",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e2e2e5",
+                    "primary-container": "#0a3d62",
+                    "on-primary-container": "#ffffff",
+                    "inverse-primary": "#a2caf7",
+                    "surface-container-highest": "#e2e2e5",
+                    "secondary": "#FF6B35",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#d5e4f8",
+                    "outline": "#72777f",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#3a1e00",
+                    "on-tertiary-fixed-variant": "#673d0a",
+                    "primary-fixed-dim": "#a2caf7",
+                    "secondary-fixed-dim": "#b9c8dc",
+                    "on-background": "#1a1c1e",
+                    "primary-fixed": "#d0e4ff",
+                    "surface-dim": "#dadadd",
+                    "tertiary-container": "#593100",
+                    "background": "#f9f9fc",
+                    "tertiary-fixed-dim": "#f9ba7e",
+                    "inverse-on-surface": "#f1f0f4",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "section-gap": "80px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "display-xl": ["Inter"],
+                    "title-md": ["Inter"],
+                    "price-display": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-bold": ["Inter"]
+            },
+            "fontSize": {
+                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "price-display": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .cart-item-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cart-item-card:hover {
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.05);
+        }
+        .tooltip-custom {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .has-tooltip:hover .tooltip-custom {
+            visibility: visible;
+            opacity: 1;
+        }
+        .sticky-summary {
+            top: 100px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-lowest shadow-sm border-b border-outline-variant flex justify-between items-center px-margin-desktop py-4 max-w-full mx-auto">
+<div class="flex items-center gap-8">
+<a class="h-10 flex items-center cursor-pointer" href="{{DATA:SCREEN:SCREEN_6}}"><img alt="FitZone Logo" class="h-full w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLtZOVFeyXzBhUecY8eVJ1e-2_ehLmdBNkgW0W3iQNJSA1cWFbIxSUqc8ekgXt-tnO98C2SBcfo3U7VA8XFkGux0zyq3IDYydIOnRisj5KyDfmFC2dAyNNUVmjTFGPUZDJk80olBpSYkHQg_-rCSUvVwLltqgwB_5hB2-Qej84_vIJyBlPgBTz-7lgbJl7rR3VFHH1URPJXbnbCh48zWPbfDjxfQ5ryucdzo7nlIIbzUc_jW_NwlhbMQjw"></a>
+<div class="hidden md:flex gap-6">
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Inicio</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Catálogo</a>
+<a class="font-body-lg text-body-lg text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Categorías</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-body-sm w-64 focus:ring-2 focus:ring-primary" placeholder="Buscar productos..." type="text">
+</div>
+<div class="flex items-center gap-3">
+<button class="relative p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+<span class="absolute top-0 right-0 bg-secondary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-surface-container-lowest">3</span>
+</button>
+<button class="p-2 active:scale-95 transition-transform">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+<span class="text-body-sm font-label-bold text-primary">Iniciar sesión</span>
+</div>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<!-- Header -->
+<header class="mb-10">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-1">Carrito de compras</h1>
+<p class="font-body-lg text-on-surface-variant">3 artículos en tu carrito</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Cart Items (Left Column) -->
+<section class="lg:col-span-8 space-y-4">
+<!-- Item 1 -->
+<article class="cart-item-card bg-surface-container-lowest border border-outline-variant p-4 flex flex-col md:flex-row gap-6 items-center rounded-lg">
+<div class="w-full md:w-32 h-32 bg-surface-container-low rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Tenis Running Elite X" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-YRglqTGfRo7yOOWxGZZB5JXxKq3pF1fnO1vK0ZEmerq4LxvyWWEHeLhWpplaAYFc3Ot6ZJ0lUxJJdvpgU1lH4wTGw_ySMNHblM2L5WTNW13U67HHFbde6FcBTXQj21pWOb9zwNyITBBfkpMc2yv7dmsRx5SQ2_u3KIEeuosya0O-KsFwgeNVH3txILOXPGMZY2XN539JuuOwQTJpvF08pJf1JqcxtFjIOxyJEDB_tI3C_61E5hz3XtSS_6XdLieuTEklg9YUWw">
+</div>
+<div class="flex-grow flex flex-col md:flex-row md:items-center justify-between w-full gap-4">
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-primary">Tenis Running Elite X</h3>
+<p class="font-body-sm text-on-surface-variant">$349.900</p>
+<span class="inline-block bg-orange-100 text-[#FF6B35] font-label-bold text-label-bold px-2 py-0.5 rounded">Solo quedan 3 unidades</span>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center border border-outline-variant rounded-lg bg-surface-container-low overflow-hidden">
+<button class="px-3 py-1 hover:bg-outline-variant transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="px-4 font-label-bold">2</span>
+<button class="px-3 py-1 hover:bg-outline-variant transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<div class="text-right min-w-[100px]">
+<p class="font-price-display text-price-display text-primary">$699.800</p>
+<button class="flex items-center gap-1 text-error text-body-sm mt-1 hover:underline ml-auto">
+<span class="material-symbols-outlined text-base">delete</span> Eliminar
+                                </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 2 -->
+<article class="cart-item-card bg-surface-container-lowest border border-outline-variant p-4 flex flex-col md:flex-row gap-6 items-center rounded-lg">
+<div class="w-full md:w-32 h-32 bg-surface-container-low rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Camiseta Dry-Fit Pro" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO5UWEYjT48dlpJmQ0CQ3G1XpTGPJOV36JvGi8c_-zwu9pKJE4TTK0x5mnBtwA4oTBU53QY0tafe7ZRJupz-cpa0skyyYloIxeQCWh8R051EUctJqcpUDH3Rsf2dCsVEBw5kaqspNj46XThTidt-W8didLRVLDvIEpLFFXXNnqo5Bp0MM7_-dmjTWV0sjNquq_swVY7T2lpA4vX9TlOoPtzTKVWFWExaAO9akmx5XYwp--ixM8SBTa4NlDYCpd_8hJaEq3iRwzOQ">
+</div>
+<div class="flex-grow flex flex-col md:flex-row md:items-center justify-between w-full gap-4">
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-primary">Camiseta Dry-Fit Pro</h3>
+<p class="font-body-sm text-on-surface-variant">$89.900</p>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center border border-outline-variant rounded-lg bg-surface-container-low overflow-hidden">
+<button class="px-3 py-1 hover:bg-outline-variant transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="px-4 font-label-bold">1</span>
+<button class="px-3 py-1 hover:bg-outline-variant transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<div class="text-right min-w-[100px]">
+<p class="font-price-display text-price-display text-primary">$89.900</p>
+<button class="flex items-center gap-1 text-error text-body-sm mt-1 hover:underline ml-auto">
+<span class="material-symbols-outlined text-base">delete</span> Eliminar
+                                </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 3 -->
+<article class="cart-item-card bg-surface-container-lowest border border-outline-variant p-4 flex flex-col md:flex-row gap-6 items-center rounded-lg">
+<div class="w-full md:w-32 h-32 bg-surface-container-low rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Maletín Training 35L" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0E-LHs3vKKHCJ8ETKfIYXedrGlqPodvjnRVQIUjiJQrMfdfpyLCJO3U2AQJFk1PQXLsA33ZQRIKCodQklfCfMRr226A75PA-iV1gAPuDY4APFZVx0xwS8TNcZE0VLTsq1MV1fl1o8gmBmYpr2N1cwVVotucoVvlfE03kxYVVV4VV-0kNXuz6Bs_7qVGGvUh_pEwc2fNSzfvHkcj2zDicEpV4Ab7OonrnaGRXiOZPvLHL_hNjOHV-PTwFQJEtUBmpqYowLHTx9vA">
+</div>
+<div class="flex-grow flex flex-col md:flex-row md:items-center justify-between w-full gap-4">
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-primary">Maletín Training 35L</h3>
+<p class="font-body-sm text-on-surface-variant">$145.000</p>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center border border-outline-variant rounded-lg bg-surface-container-low overflow-hidden">
+<button class="px-3 py-1 hover:bg-outline-variant transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="px-4 font-label-bold">1</span>
+<button class="px-3 py-1 hover:bg-outline-variant transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<div class="text-right min-w-[100px]">
+<p class="font-price-display text-price-display text-primary">$145.000</p>
+<button class="flex items-center gap-1 text-error text-body-sm mt-1 hover:underline ml-auto">
+<span class="material-symbols-outlined text-base">delete</span> Eliminar
+                                </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Back Link -->
+<div class="pt-6">
+<a class="flex items-center gap-2 text-primary hover:text-secondary font-title-md transition-colors" href="{{DATA:SCREEN:SCREEN_6}}">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Seguir comprando
+                    </a>
+</div>
+</section>
+<!-- Order Summary (Right Column) -->
+<aside class="lg:col-span-4 sticky sticky-summary">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl shadow-sm">
+<h2 class="font-title-md text-title-md text-primary mb-6 border-b border-outline-variant pb-4">Resumen del pedido</h2>
+<div class="space-y-4 mb-6">
+<div class="flex justify-between items-center">
+<span class="font-body-lg text-on-surface-variant">Subtotal</span>
+<span class="font-body-lg text-on-surface">$1.079.700</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-lg text-on-surface-variant">Envío</span>
+<span class="font-body-sm text-outline italic">Calculado al confirmar</span>
+</div>
+</div>
+<div class="border-t border-outline-variant pt-6 mb-8">
+<div class="flex justify-between items-end">
+<span class="font-title-md text-primary">Total</span>
+<div class="text-right">
+<p class="font-display-xl text-[32px] font-extrabold text-primary">$1.079.700</p>
+<p class="text-[12px] text-on-surface-variant font-bold uppercase tracking-wider">COP</p>
+</div>
+</div>
+</div>
+<div class="relative has-tooltip">
+<button class="w-full bg-secondary-container text-white opacity-50 cursor-not-allowed py-4 px-6 rounded-lg font-title-md flex justify-center items-center gap-2 transition-transform active:scale-95" disabled="" onclick="window.location.href='{{DATA:SCREEN:SCREEN_21}}'">
+                            Proceder al pedido
+                            <span class="material-symbols-outlined">lock</span>
+</button>
+<div class="tooltip-custom absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-inverse-surface text-white text-body-sm rounded shadow-lg whitespace-nowrap">
+                            Debes iniciar sesión
+                        </div>
+</div>
+<div class="mt-6 space-y-4">
+<p class="text-center font-body-sm text-on-surface-variant">Métodos de pago aceptados:</p>
+<div class="flex justify-center gap-4 opacity-60">
+<img alt="Visa" class="h-6 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVusE24D5tW_FNJDEYrPQPSbneBThi0xZqnTv962odZRN_Gt8SjlF3erUriQqgM1Co4BspnkJGqVmLQ7lPt5uzbs7VRLLzj7VPfT3qpDPQMRXtHMtTaF8_TaypN-rOTlCrbuzyUaNSUCrO1O4VexyqVza_a98PAZmij0LKQXOol_eUbvgtnODU_TX0yYp5KOLDedOaF9qLP3gjcOmVjyHAV0AjKX8P3Y5b48CLZ441YnKnVMFJjRg_wrlfKeIrsrNDTohUiJrhNg">
+<img alt="Mastercard" class="h-6 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB25sXezLKGxPx1R7JtXsUhdK6dlyow26Phxk1JV4xUmjhBX9OJm4ExuCvarBjxKzlEExRfge9NmcFI-Z2TMhjdqz6tn8XJTW9WDjl46C1v_OS9td1mlwAe3Iu13nq5LSBhgiT5T9CTDegoG9pPGBBCfiCMkFWssHYSiyIifsjg-FsjOcNJvGsDrj66-pG4_Qk9OyhywHb12ENOjgAXp82PAUmte3W7vkTAkrWO1Uwie1j1L6VSWI6TQWwRBhMdJwk3_REFlIFfzQ">
+<img alt="PayPal" class="h-6 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANMWLhGQdTepATZuAqNqDLEAL9rfw0BFGzGRNuFKqvZ1SLS0zjhKCIyrQ-GFmdI0t9EygLyKxQiDedff0OO88oAlrULal9akOm3l2hOtlAKDsZmBR7pDSoMxYm9Exc1ygJrD9ml3OfH-8JLk5dRArcwq8ZFMTY4b0nO1alzbZJ-hSuJ3HDLrYWwyQEHoK6XpI0chW8ycJ8oUNXz-Kw5mz-JdNVNZRrjlecRSCvUQJdVymIw7OAQyW228lx31n12nxmUCBBG5UlyA">
+</div>
+</div>
+</div>
+<div class="mt-6 p-4 bg-primary-fixed text-on-primary-fixed rounded-lg flex gap-3 items-start border border-primary/10">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<div>
+<p class="font-label-bold">Envío Gratis</p>
+<p class="text-body-sm">¡Tu pedido aplica para envío gratuito a todo el país!</p>
+</div>
+</div>
+</aside>
+</div>
+<!-- Empty State Section -->
+<section class="mt-24 pt-16 border-t border-outline-variant flex flex-col items-center text-center">
+<div class="mb-6 opacity-20">
+<span class="material-symbols-outlined text-[120px] leading-none">shopping_cart_off</span>
+</div>
+<h2 class="font-headline-lg text-primary mb-4">Tu carrito está vacío</h2>
+<p class="font-body-lg text-on-surface-variant mb-8 max-w-md mx-auto">Parece que aún no has agregado nada. ¡Explora nuestro catálogo y encuentra lo mejor para tu entrenamiento!</p>
+<button class="bg-primary text-white py-3 px-10 rounded-lg font-title-md hover:bg-[#082a44] transition-colors active:scale-95">
+                Explorar catálogo
+            </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-primary-container text-white">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="h-10 flex items-center"><img src="https://lh3.googleusercontent.com/aida/AP1WRLsYr1jLJhPKm3DzaMAZXxN7Qk3mZuNB_Zoa9igDlnIoPRTn3EzY1VaKEq-9iDWSK1rN0ovA4hapkzHh54LAcJlsd3TJF26NvKe9pi22mAq2GLZkcCFe6siH71qAr4YdlalDKzazTIin0BnIgd7JGZbENEjbi3NthtIN2MzSw5KD2zJLEmEsiDYJ_qLxarf8uFQDgnzAvC8MA34GvFzqGoLScKpsbwnGYCTWsll3UzJdNBuG_S6Rb4lL" alt="FitZone Logo Inverted" class="h-10 w-auto object-contain"></div>
+<p class="font-body-sm opacity-80 max-w-xs">Elevando el rendimiento de los atletas colombianos con tecnología de vanguardia y estilo impecable.</p>
+</div>
+<div>
+<h4 class="font-label-bold mb-4 uppercase tracking-widest text-secondary">Comprar</h4>
+<ul class="space-y-2">
+<li class=""><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Hombre</a></li>
+<li class=""><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Mujer</a></li>
+<li class=""><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Accesorios</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold mb-4 uppercase tracking-widest text-secondary">Soporte</h4>
+<ul class="space-y-2">
+<li class=""><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Sobre nosotros</a></li>
+<li class=""><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Contacto</a></li>
+<li class=""><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Términos</a></li>
+<li class=""><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Guía de Tallas</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold mb-4 uppercase tracking-widest text-secondary">Newsletter</h4>
+<div class="flex gap-2">
+<input class="bg-white/10 border-none rounded px-3 py-2 text-body-sm w-full focus:ring-1 focus:ring-secondary text-white placeholder-white/40" placeholder="Email" type="email">
+<button class="bg-secondary px-3 py-2 rounded active:scale-95 transition-transform"><span class="material-symbols-outlined text-sm">send</span></button>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-white/10 text-center">
+<p class="font-body-sm opacity-60">© 2026 FitZone — Proyecto TSP Politécnico Grancolombiano</p>
+</div>
+</footer>
+<script>
+        // Quantity interaction logic
+        document.querySelectorAll('.cart-item-card button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                if(icon && (icon.textContent === 'add' || icon.textContent === 'remove')) {
+                    const span = this.parentElement.querySelector('span:not(.material-symbols-outlined)');
+                    let val = parseInt(span.textContent);
+                    if(icon.textContent === 'add') val++;
+                    if(icon.textContent === 'remove' && val > 1) val--;
+                    span.textContent = val;
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

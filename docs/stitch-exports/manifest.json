@@ -1,0 +1,74 @@
+{
+  "projectId": "922251080156382484",
+  "projectTitle": "FitZone Design System",
+  "stitchUrl": "https://stitch.withgoogle.com/projects/922251080156382484",
+  "designSystemAsset": "assets/28c113746c4e4e7f880e42e8e7dd25d7",
+  "exportedAt": "2026-06-07T23:02:00Z",
+  "screens": {
+    "design": {
+      "catalogo": {
+        "id": "4f38f64d58bd42338cbc6621690f6461",
+        "title": "FitZone - Catálogo Unificado y Filtros Avanzados",
+        "html": "design/catalogo.html"
+      },
+      "detalleProducto": {
+        "id": "2a01db5e9fe74c12b84fba723c56ef42",
+        "title": "FitZone - Detalle de Producto",
+        "html": "design/detalle-producto.html"
+      },
+      "carrito": {
+        "id": "1007e06eb2cd4725b7838260e7bd0ec9",
+        "title": "FitZone - Carrito Completo y Estado Vacío",
+        "html": "design/carrito.html"
+      },
+      "busqueda": {
+        "id": "dd052f6795cd4d6891e704789ff91f94",
+        "title": "FitZone - Resultados de Búsqueda Completo",
+        "html": "design/busqueda.html"
+      },
+      "authUnificada": {
+        "id": "c38ddecc04404ebea63ed7b66f8c9ec6",
+        "title": "FitZone - Autenticación Unificada",
+        "html": "design/auth-unificada.html"
+      }
+    },
+    "prototype": {
+      "catalogo": {
+        "id": "4dde6679ea5a4b1593aff6bf89158fec",
+        "title": "FitZone - Catálogo Interactivo y Flujo Unificado",
+        "html": "prototype/catalogo-interactivo.html"
+      },
+      "detalleProducto": {
+        "id": "27224358d0c94d718cfeab132c1f3420",
+        "title": "FitZone - Detalle de Producto Interactivo",
+        "html": "prototype/detalle-interactivo.html"
+      },
+      "carrito": {
+        "id": "1899616c351144a1ae07958088ac45a2",
+        "title": "FitZone - Carrito Interactivo",
+        "html": "prototype/carrito-interactivo.html"
+      },
+      "busqueda": {
+        "id": "9f47a25084fc4e7188ccc3eb2fd5b15e",
+        "title": "FitZone - Resultados de Búsqueda Interactivo",
+        "html": "prototype/busqueda-interactiva.html"
+      },
+      "auth": {
+        "id": "3df1ff537af14a10bc306c42a50a50b2",
+        "title": "FitZone - Autenticación Interactiva",
+        "html": "prototype/auth-interactiva.html"
+      }
+    },
+    "assets": {
+      "logoCanonico": "5640cbfbb47441f987f15d3041c0c39c",
+      "logoInvertido": "4e431014bd9e4268b5c32ba0782426e6"
+    }
+  },
+  "navigationFlow": [
+    "Catálogo → click producto → Detalle",
+    "Detalle → Agregar al carrito → Carrito",
+    "Carrito → Proceder al pedido → Auth (tab Iniciar sesión)",
+    "Header búsqueda → Resultados búsqueda avanzada",
+    "Catálogo → Búsqueda avanzada → Resultados búsqueda"
+  ]
+}

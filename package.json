@@ -1,0 +1,13 @@
+{
+  "name": "fitzone-page",
+  "version": "1.0.0",
+  "description": "FitZone — Catálogo virtual TSP",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed": "node scripts/seed-products.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.1.0"
+  }
+}
