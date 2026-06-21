@@ -25,6 +25,10 @@ Flujo de navegación: [`docs/navegacion.md`](docs/navegacion.md)
 
 Prototipo Stitch: [FitZone Design System](https://stitch.withgoogle.com/projects/922251080156382484)
 
+## Repositorio
+
+**GitHub:** https://github.com/mcameloa/fitzone_page
+
 ## Desarrollo local
 
 ```bash
@@ -68,8 +72,11 @@ npm run seed
 ## Desplegar (Firebase Hosting)
 
 ```bash
-firebase init hosting   # public directory: . (raíz), SPA: No
-firebase deploy --only hosting
+npm install
+npx firebase login
+cp .firebaserc.example .firebaserc   # editar con tu project ID
+cp js/firebase-config.example.js js/firebase-config.js   # completar credenciales
+npm run deploy
 ```
 
 URL resultante: `https://<project-id>.web.app`
@@ -91,8 +98,7 @@ URL resultante: `https://<project-id>.web.app`
 
 ## Sitio en producción
 
-<!-- Actualizar tras deploy -->
-_URL pendiente — ejecutar `firebase deploy --only hosting`_
+Pendiente de configurar Firebase — ver sección **Desplegar** arriba.
 
 ## Licencia
 

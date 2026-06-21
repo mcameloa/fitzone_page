@@ -5,9 +5,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "seed": "node scripts/seed-products.js"
+    "seed": "node scripts/seed-products.js",
+    "deploy": "firebase deploy --only hosting,firestore:rules"
   },
   "dependencies": {
     "firebase-admin": "^12.1.0"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.35.1"
   }
 }
