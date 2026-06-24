@@ -1,4 +1,4 @@
-import { LOGO_URL } from "./products-data.js";
+import { LOGO_URL, LOGO_INVERTED_URL } from "./products-data.js";
 import { getCartCount } from "./cart.js";
 import { onAuthChange, logout, isLoggedIn } from "./auth.js";
 import { formatCOP, getStockStatus, stockLabelWithCount } from "./format.js";
@@ -120,7 +120,7 @@ export function renderFooter() {
     <footer class="bg-primary text-white mt-16">
       <div class="max-w-7xl mx-auto px-4 md:px-margin-desktop py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <img src="${LOGO_URL}" alt="FitZone" class="h-8 w-auto mb-4 brightness-0 invert opacity-90">
+          <img src="${LOGO_INVERTED_URL}" alt="FitZone" class="h-8 w-auto mb-4">
           <p class="text-sm opacity-80">Rendimiento con estilo. Ropa deportiva premium para atletas exigentes.</p>
         </div>
         <div class="space-y-2">

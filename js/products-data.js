@@ -1,5 +1,5 @@
-export const LOGO_URL =
-  "https://lh3.googleusercontent.com/aida/AP1WRLtZOVFeyXzBhUecY8eVJ1e-2_ehLmdBNkgW0W3iQNJSA1cWFbIxSUqc8ekgXt-tnO98C2SBcfo3U7VA8XFkGux0zyq3IDYydIOnRisj5KyDfmFC2dAyNNUVmjTFGPUZDJk80olBpSYkHQg_-rCSUvVwLltqgwB_5hB2-Qej84_vIJyBlPgBTz-7lgbJl7rR3VFHH1URPJXbnbCh48zWPbfDjxfQ5ryucdzo7nlIIbzUc_jW_NwlhbMQjw";
+export const LOGO_URL = "assets/logo.svg";
+export const LOGO_INVERTED_URL = "assets/logo-inverted.svg";
 
 export const HERO_IMAGE =
   "https://lh3.googleusercontent.com/aida/AP1WRLvwAyLhY2FA3NII_yyeabmEuxwsOXtBRjvgHrCNA4EKwne0fNZcTP-28lJ7KjF1517BzF8cC0xry9GR4YdhwRyAivf-md7BGfyyuG_YNOJ6QY1ZeUTOxSEoaDtdaswHhSIsrV-tC0CTrw1t0RPZp2nfV-aSsC_r28q1oO9yCjQ7x-hFwVZudsa59Wp5THnbbAR4cc4wdiljA7WmoBNVoTmw8wExN7Jfgn8DAZF62euLHMOo6WPZCZXu8Q";

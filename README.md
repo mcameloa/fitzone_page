@@ -31,8 +31,26 @@ Prototipo Stitch: [FitZone Design System](https://stitch.withgoogle.com/projects
 
 ## Desarrollo local
 
+### Requisito: Node 20+ (nvm)
+
+Este proyecto usa **Firebase SDK v12** y **firebase-tools v14**, que requieren Node 20 o superior.
+
 ```bash
-# Servir archivos estáticos (ejemplo con Python)
+cd fitzone_page
+nvm use          # lee .nvmrc → Node 20
+npm install
+```
+
+Si no tienes Node 20 instalado:
+
+```bash
+nvm install 20
+nvm use 20
+```
+
+### Servir el sitio
+
+```bash
 python3 -m http.server 8080
 # Abrir http://localhost:8080
 ```
@@ -55,31 +73,29 @@ cp js/firebase-config.example.js js/firebase-config.js
 6. Desplegar reglas Firestore:
 
 ```bash
-npm install -g firebase-tools
-firebase login
-cp .firebaserc.example .firebaserc   # editar project ID
-firebase deploy --only firestore:rules
+nvm use
+npm install
+npx firebase login
+npm run deploy   # o solo reglas: npx firebase deploy --only firestore:rules
 ```
 
 7. Poblar productos en Firestore:
 
 ```bash
-npm install
-# Descargar serviceAccountKey.json desde Firebase Console
-npm run seed
+nvm use
+npm run seed     # requiere serviceAccountKey.json
 ```
 
 ## Desplegar (Firebase Hosting)
 
 ```bash
+nvm use
 npm install
-npx firebase login
-cp .firebaserc.example .firebaserc   # editar con tu project ID
-cp js/firebase-config.example.js js/firebase-config.js   # completar credenciales
+npx firebase login    # solo la primera vez
 npm run deploy
 ```
 
-URL resultante: `https://<project-id>.web.app`
+URL resultante: `https://fitzone-35213.web.app`
 
 ## Estructura
 
@@ -91,7 +107,7 @@ URL resultante: `https://<project-id>.web.app`
 │   ├── products-data.js        (catálogo local + seed)
 │   ├── products.js, cart.js, auth.js, ui.js, format.js
 │   └── pages/                  (lógica por pantalla)
-├── scripts/seed-products.js
+├── scripts/seed-products.mjs
 ├── firebase.json
 └── docs/                       (documentación TSP)
 ```

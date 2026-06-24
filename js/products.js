@@ -1,35 +1,15 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {
-  getFirestore,
   collection,
   getDocs,
   doc,
   getDoc,
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { firebaseConfig, isFirebaseConfigured } from "./firebase-config.js";
+} from "firebase/firestore";
+import { getFirebaseAuth, getFirestoreDb } from "./firebase-client.js";
 import { PRODUCTS, getProductById as localGetById } from "./products-data.js";
 
-let app = null;
-let auth = null;
-let db = null;
 let cache = null;
 
-export function getFirebaseAuth() {
-  if (!isFirebaseConfigured()) return null;
-  if (!auth) {
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-  }
-  return auth;
-}
-
-export function getFirestoreDb() {
-  if (!isFirebaseConfigured()) return null;
-  if (!db) getFirebaseAuth();
-  return db;
-}
+export { getFirebaseAuth, getFirestoreDb };
 
 function normalizeProduct(data, id) {
   return {

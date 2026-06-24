@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" role="img" aria-label="FitZone">
+  <rect x="0" y="4" width="32" height="32" rx="8" fill="#0A3D62"/>
+  <path d="M9 14h14v3H14v4h7v3H9V14zm0 13h9v3H9v-3z" fill="#FF6B35"/>
+  <text x="42" y="27" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#0A3D62">Fit</text>
+  <text x="78" y="27" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#FF6B35">Zone</text>
+</svg>

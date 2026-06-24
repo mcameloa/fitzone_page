@@ -3,8 +3,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirebaseAuth } from "./products.js";
+} from "firebase/auth";
+import { getFirebaseAuth } from "./firebase-client.js";
 
 let currentUser = null;
 const listeners = new Set();

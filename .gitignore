@@ -1,6 +1,5 @@
 js/firebase-config.js
 .firebase/
-.firebaserc
 serviceAccountKey.json
 node_modules/
 .DS_Store
